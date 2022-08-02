@@ -1,0 +1,20 @@
+{
+  "name": "pincode-geocoord",
+  "version": "1.0.0",
+  "description": "Provides lat, long corresponding to Indian Pin codes.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeevan-jp/pincode-geocoord.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jeevan-jp/pincode-geocoord/issues"
+  },
+  "homepage": "https://github.com/jeevan-jp/pincode-geocoord#readme"
+}
