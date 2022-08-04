@@ -1,6 +1,6 @@
 {
   "name": "pincode-geocoord",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Provides lat, long corresponding to Indian Pin codes.",
   "main": "lib/index.js",
   "scripts": {
