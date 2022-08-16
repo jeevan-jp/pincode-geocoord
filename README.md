@@ -8,8 +8,8 @@ npm i git+https://github.com/jeevan-jp/pincode-geocoord.md
 
 Usage example:
 ```js
-const getGeoCoordsFromPincode = require('pincode-geocoord');
-console.log(getGeoCoordsFromPincode(110001));
+const PincodeService = require('pincode-geocoord');
+console.log(PincodeService.getGeoCoordsFromPincode(110001));
 
 /**
   {
