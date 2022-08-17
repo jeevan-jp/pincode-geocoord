@@ -10,12 +10,9 @@ function getGeoCoordsFromPincode(
 }
 
 function generateCityNameToCalcZone(city: string): string {
-  
-
   const fuse = new Fuse(cities);
 
   const result = fuse.search(city);
-  console.log(result);
 
   return result[0].item;
 }
