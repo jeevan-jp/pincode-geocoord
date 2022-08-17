@@ -14,8 +14,6 @@ function generateCityNameToCalcZone(city: string): string {
 
   const result = fuse.search(city);
 
-  return result[0].item;
+  return result[0]?.item;
 }
-
-console.log(generateCityNameToCalcZone("Dilli"));
 export { getGeoCoordsFromPincode, pincodeToCity, generateCityNameToCalcZone };
