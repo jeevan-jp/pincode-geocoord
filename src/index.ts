@@ -34,7 +34,7 @@ function generateCityNameToCalcZone(city: string): string | undefined {
     }
   }
 
-  if (typeof result[0].score !== "undefined") {
+  if (typeof result[0]?.score !== "undefined") {
     console.log(`Found the city with ${(1 - result[0].score) * 100}% accuracy`);
   }
 
