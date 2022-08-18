@@ -2,7 +2,6 @@ import PincodeData from "./PincodeToGeoCode";
 import pincodeToCity from "./pincodeToCity";
 import Fuse from "fuse.js";
 import { cities } from "./DelhiveryCities";
-import _ from "lodash";
 
 function getGeoCoordsFromPincode(
   pincode: number | string
@@ -15,7 +14,7 @@ function generateCityNameToCalcZone(city: string): string | undefined {
     includeScore: true,
   };
   const fuse = new Fuse(cities, options);
-
+  city = city.trim();
   let result = fuse.search(city);
 
   if (result.length === 0) {
@@ -25,7 +24,7 @@ function generateCityNameToCalcZone(city: string): string | undefined {
       let score = 1;
 
       for (let city of cities) {
-        city = _.trim(city);
+        city = city.trim();
         const res = fuse.search(city);
         if (typeof res?.[0]?.score !== "undefined" && res?.[0]?.score < score) {
           score = res[0].score;
