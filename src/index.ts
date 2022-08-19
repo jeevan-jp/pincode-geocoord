@@ -25,7 +25,7 @@ function generateCityNameToCalcZone(city: string): string | undefined {
     // When city name entered by user contains multiple comma sepereated place name
     // eg. Kanjiramattom, Ernakulam, Kochi
     // In this case we search by splitting them and result with highest accuracy is taken
-    if (city.indexOf(",")>=0) {
+    if (city.includes(",")) {
       const cities = city.split(",");
 
       let score = 1;
@@ -38,22 +38,30 @@ function generateCityNameToCalcZone(city: string): string | undefined {
           result = res;
         }
       }
-    } 
+    }
     // When city name entered by user contains multiple space sepereated place name
-    // eg. Kanjiramattom, Ernakulam, Kochi
+    // eg. East Thane West
     // In this case we search by excluding first word in each itereation and result with highest accuracy is taken
-    else if (city.indexOf(' ')>=0){
+    // We also search by splitting them and result with more accuracy is taken
+    else if (city.includes(" ")) {
       let score = 1;
-      while(city.indexOf(' ')>=0){
-        const ind = city.indexOf(' ');
-        city = city.slice(ind,city.length);
+      const cities = city.split(" ");
+      for(let index = 1; index < cities.length; index++) {
+        city = cities.slice(index, city.length).join(" ");
         city = city.trim();
         const res = fuse.search(city);
         if (typeof res?.[0]?.score !== "undefined" && res?.[0]?.score < score) {
           score = res[0].score;
           result = res;
         }
-       
+      }
+      for (let city of cities) {
+        city = city.trim();
+        const res = fuse.search(city);
+        if (typeof res?.[0]?.score !== "undefined" && res?.[0]?.score < score) {
+          score = res[0].score;
+          result = res;
+        }
       }
     }
   }
