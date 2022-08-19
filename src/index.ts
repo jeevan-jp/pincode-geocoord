@@ -3,12 +3,23 @@ import pincodeToCity from "./pincodeToCity";
 import Fuse from "fuse.js";
 import { cities } from "./DelhiveryCities";
 
+/**
+ * Function to find out latitude and longitude corresponding o particular pincode
+ * @param pincode
+ * @returns {object} containing lat and long corresponding to a particular pincode
+ */
 function getGeoCoordsFromPincode(
   pincode: number | string
 ): { lat: number; lng: number } | null {
   return PincodeData[pincode];
 }
 
+/**
+ * Function to find out closest city name from Delhivery City Name List
+ * NOTE: makes use of fuse.js to use various string matching strategies
+ * @param city city name
+ * @returns closest city name from Delhivery City Name List
+ */
 function generateCityNameToCalcZone(city: string): string | undefined {
   const options = {
     includeScore: true,
@@ -76,4 +87,5 @@ function generateCityNameToCalcZone(city: string): string | undefined {
   }
   return result[0]?.item;
 }
+
 export { getGeoCoordsFromPincode, pincodeToCity, generateCityNameToCalcZone };
