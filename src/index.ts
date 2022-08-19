@@ -18,7 +18,7 @@ function getGeoCoordsFromPincode(
  * Function to find out closest city name from Delhivery City Name List
  * NOTE: makes use of fuse.js to use various string matching strategies
  * @param city city name
- * @returns closest city name from Delhivery City Name List
+ * @returns {string} closest city name from Delhivery City Name List
  */
 function generateCityNameToCalcZone(city: string): string | undefined {
   const options = {
